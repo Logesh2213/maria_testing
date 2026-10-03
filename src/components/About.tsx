@@ -1,5 +1,4 @@
-import { Target, Eye, Crown } from 'lucide-react';
-import owner from '../assets/owner.png';
+import { Target, Eye } from 'lucide-react';
 import chairman from '../assets/chairman.png';
 import director from '../assets/director.png';
 
