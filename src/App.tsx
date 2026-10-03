@@ -3,7 +3,6 @@ import Hero from './components/Hero';
 import WhoWeAre from './components/WhoWeAre';
 import Services from './components/Services';
 import DreamHome from './components/DreamHome';
-import Experience from './components/Experience';
 import WhyChooseUs from './components/WhyChooseUs';
 import Process from './components/Process';
 import Gallery from './components/Gallery';
@@ -21,7 +20,6 @@ function App() {
       <WhoWeAre />
       <Services />
       <DreamHome />
-      <Experience />
       <WhyChooseUs />
       <Process />
       <Gallery />
