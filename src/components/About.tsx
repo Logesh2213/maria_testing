@@ -68,46 +68,19 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Owner Card */}
-            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 hover:shadow-3xl transition-shadow">
-              <div className="relative">
-                <img
-                  src={owner}
-                  alt="Owner"
-                  className="w-full h-72 object-cover object-top"
-                />
-                <div className="absolute top-4 left-4 bg-accent-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
-                  Founder & Owner
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="bg-primary-100 p-1.5 rounded-full">
-                    <Crown className="text-primary-600" size={18} />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900">
-                    Owner Name
-                  </h3>
-                </div>
-                <p className="text-primary-600 font-semibold mb-3">
-                  Founder & Owner
-                </p>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Leading Maria Housing with vision and dedication to quality construction excellence.
-                </p>
-              </div>
-            </div>
+            
 
             {/* Chairman Card */}
             <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 hover:shadow-3xl transition-shadow">
-              <div className="relative">
+              <div className="relative bg-gradient-to-br from-primary-50 to-accent-50">
                 <img
                   src={chairman}
                   alt="J Inego Lancy"
-                  className="w-full h-72 object-cover object-top"
+                  className="w-full h-80 object-cover object-center"
                 />
-                <div className="absolute top-4 left-4 bg-primary-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                <div className="absolute top-4 left-4 bg-primary-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
                   Chairman
                 </div>
               </div>
@@ -126,13 +99,13 @@ const About = () => {
 
             {/* Managing Director Card */}
             <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 hover:shadow-3xl transition-shadow">
-              <div className="relative">
+              <div className="relative bg-gradient-to-br from-green-50 to-primary-50">
                 <img
                   src={director}
                   alt="L Kiran Harishan"
-                  className="w-full h-72 object-cover object-top"
+                  className="w-full h-80 object-cover object-center"
                 />
-                <div className="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                <div className="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
                   Managing Director
                 </div>
               </div>
