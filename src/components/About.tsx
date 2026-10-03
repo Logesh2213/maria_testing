@@ -1,10 +1,13 @@
-import { Target, Eye } from 'lucide-react';
+import { Target, Eye, Crown } from 'lucide-react';
+import owner from '../assets/owner.png';
+import chairman from '../assets/chairman.png';
+import director from '../assets/director.png';
 
 const About = () => {
   return (
     <section id="about" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
           {/* Image */}
           <div className="relative">
             <img
@@ -48,6 +51,100 @@ const About = () => {
                 </div>
                 <p className="text-gray-600">
                   To become a trusted and respected name in the construction and real estate industry by consistently delivering quality projects and building lasting relationships with our clients.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Team Section */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              Meet Our Team
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              The leadership team behind Maria Housing's success
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Owner Card */}
+            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 hover:shadow-3xl transition-shadow">
+              <div className="relative">
+                <img
+                  src={owner}
+                  alt="Owner"
+                  className="w-full h-72 object-cover object-top"
+                />
+                <div className="absolute top-4 left-4 bg-accent-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  Founder & Owner
+                </div>
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="bg-primary-100 p-1.5 rounded-full">
+                    <Crown className="text-primary-600" size={18} />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900">
+                    Owner Name
+                  </h3>
+                </div>
+                <p className="text-primary-600 font-semibold mb-3">
+                  Founder & Owner
+                </p>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Leading Maria Housing with vision and dedication to quality construction excellence.
+                </p>
+              </div>
+            </div>
+
+            {/* Chairman Card */}
+            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 hover:shadow-3xl transition-shadow">
+              <div className="relative">
+                <img
+                  src={chairman}
+                  alt="J Inego Lancy"
+                  className="w-full h-72 object-cover object-top"
+                />
+                <div className="absolute top-4 left-4 bg-primary-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  Chairman
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  J Inego Lancy
+                </h3>
+                <p className="text-primary-600 font-semibold mb-3">
+                  Chairman
+                </p>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Providing strategic leadership and guiding the company's vision for growth and excellence.
+                </p>
+              </div>
+            </div>
+
+            {/* Managing Director Card */}
+            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 hover:shadow-3xl transition-shadow">
+              <div className="relative">
+                <img
+                  src={director}
+                  alt="L Kiran Harishan"
+                  className="w-full h-72 object-cover object-top"
+                />
+                <div className="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  Managing Director
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  L Kiran Harishan
+                </h3>
+                <p className="text-primary-600 font-semibold mb-3">
+                  Managing Director
+                </p>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Overseeing operations and ensuring delivery of quality construction projects.
                 </p>
               </div>
             </div>
