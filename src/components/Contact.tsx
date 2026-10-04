@@ -1,4 +1,5 @@
-import { MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { MapPin, Phone, Mail, MessageCircle, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 
 const Contact = () => {
@@ -31,66 +32,95 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-32 bg-background-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <span className="text-accent-600 font-semibold text-sm uppercase tracking-widest mb-4 block">
+            Contact Us
+          </span>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-background-900 mb-6">
             Let's Build Something Beautiful Together
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-background-600 max-w-2xl mx-auto">
             Have a project in mind? We'd love to hear from you.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Info */}
-          <div className="space-y-8">
-            <div className="flex items-start gap-4">
-              <div className="bg-primary-100 p-3 rounded-lg">
-                <MapPin className="text-primary-600" size={24} />
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-8"
+          >
+            <div className="flex items-start gap-6">
+              <div className="bg-accent-100 p-4 rounded-2xl">
+                <MapPin className="text-accent-600" size={28} />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-1">Visit Us</h3>
-                <p className="text-gray-600">No, 98/A, Bankmans Colony, Alazhgiri Nagar, Alamelumangapuram, Sathuvachari, Vellore, Tamil Nadu 632009</p>
+                <h3 className="text-2xl font-display font-bold text-background-900 mb-2">Visit Us</h3>
+                <p className="text-background-600 leading-relaxed">No, 98/A, Bankmans Colony, Alazhgiri Nagar, Alamelumangapuram, Sathuvachari, Vellore, Tamil Nadu 632009</p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="bg-primary-100 p-3 rounded-lg">
-                <Phone className="text-primary-600" size={24} />
+            <div className="flex items-start gap-6">
+              <div className="bg-accent-100 p-4 rounded-2xl">
+                <Phone className="text-accent-600" size={28} />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-1">Call Us</h3>
-                <p className="text-gray-600">+91 70106 80759</p>
+                <h3 className="text-2xl font-display font-bold text-background-900 mb-2">Call Us</h3>
+                <p className="text-background-600 text-lg">+91 70106 80759</p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="bg-primary-100 p-3 rounded-lg">
-                <Mail className="text-primary-600" size={24} />
+            <div className="flex items-start gap-6">
+              <div className="bg-accent-100 p-4 rounded-2xl">
+                <Mail className="text-accent-600" size={28} />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-1">Email Us</h3>
-                <p className="text-gray-600">Hello@mariasupercity.com</p>
+                <h3 className="text-2xl font-display font-bold text-background-900 mb-2">Email Us</h3>
+                <p className="text-background-600 text-lg">Hello@mariasupercity.com</p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="bg-green-100 p-3 rounded-lg">
-                <MessageCircle className="text-green-600" size={24} />
+            <div className="flex items-start gap-6">
+              <div className="bg-accent-100 p-4 rounded-2xl">
+                <MessageCircle className="text-accent-600" size={28} />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-1">WhatsApp</h3>
-                <p className="text-gray-600">+91 70106 80759</p>
+                <h3 className="text-2xl font-display font-bold text-background-900 mb-2">WhatsApp</h3>
+                <a
+                  href="https://wa.me/917010680759?text=Hello%20Maria%20Housing%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-background-600 text-lg hover:text-accent-600 transition-colors"
+                >
+                  +91 70106 80759
+                </a>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="bg-gray-50 rounded-2xl p-8">
+          <motion.form
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            onSubmit={handleSubmit}
+            className="bg-white rounded-3xl p-10 shadow-xl border border-background-200"
+          >
             <div className="space-y-6">
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Name</label>
+                <label className="block text-background-900 font-semibold mb-2">Name</label>
                 <input
                   type="text"
                   name="name"
@@ -98,12 +128,12 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="Enter your name"
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition-all"
+                  className="w-full px-5 py-4 rounded-2xl border border-background-300 focus:border-accent-500 focus:ring-2 focus:ring-accent-200 outline-none transition-all bg-background-50"
                 />
               </div>
 
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Phone Number</label>
+                <label className="block text-background-900 font-semibold mb-2">Phone Number</label>
                 <input
                   type="tel"
                   name="phone"
@@ -111,12 +141,12 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="Enter your phone number"
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition-all"
+                  className="w-full px-5 py-4 rounded-2xl border border-background-300 focus:border-accent-500 focus:ring-2 focus:ring-accent-200 outline-none transition-all bg-background-50"
                 />
               </div>
 
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Email Address</label>
+                <label className="block text-background-900 font-semibold mb-2">Email Address</label>
                 <input
                   type="email"
                   name="email"
@@ -124,18 +154,18 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="Enter your email"
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition-all"
+                  className="w-full px-5 py-4 rounded-2xl border border-background-300 focus:border-accent-500 focus:ring-2 focus:ring-accent-200 outline-none transition-all bg-background-50"
                 />
               </div>
 
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Project Type</label>
+                <label className="block text-background-900 font-semibold mb-2">Project Type</label>
                 <select
                   name="projectType"
                   value={formData.projectType}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition-all"
+                  className="w-full px-5 py-4 rounded-2xl border border-background-300 focus:border-accent-500 focus:ring-2 focus:ring-accent-200 outline-none transition-all bg-background-50"
                 >
                   <option value="">Select project type</option>
                   <option value="House Construction">House Construction</option>
@@ -147,7 +177,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Message</label>
+                <label className="block text-background-900 font-semibold mb-2">Message</label>
                 <textarea
                   name="message"
                   value={formData.message}
@@ -155,18 +185,21 @@ const Contact = () => {
                   placeholder="Tell us about your requirements"
                   rows={4}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition-all resize-none"
+                  className="w-full px-5 py-4 rounded-2xl border border-background-300 focus:border-accent-500 focus:ring-2 focus:ring-accent-200 outline-none transition-all resize-none bg-background-50"
                 />
               </div>
 
-              <button
+              <motion.button
                 type="submit"
-                className="w-full bg-primary-600 text-white py-4 rounded-lg font-semibold hover:bg-primary-700 transition-all transform hover:scale-105"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full bg-background-900 text-white py-4 rounded-2xl font-semibold hover:bg-background-800 transition-all shadow-xl flex items-center justify-center gap-2"
               >
                 Send Enquiry
-              </button>
+                <ArrowRight size={20} />
+              </motion.button>
             </div>
-          </form>
+          </motion.form>
         </div>
       </div>
     </section>

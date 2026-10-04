@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
 const WhyChooseUs = () => {
@@ -29,43 +30,50 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+    <section className="py-32 bg-background-900 text-white relative overflow-hidden">
+      {/* Decorative gradient */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent-600/10 to-transparent" />
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <span className="text-accent-400 font-semibold text-sm uppercase tracking-widest mb-4 block">
+                Why Us
+          </span>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-6">
             Why Choose Maria Housing?
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-background-300 max-w-2xl mx-auto">
             Experience the difference that Maria Housing can make in your next construction or real estate project.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {reasons.map((reason, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group bg-background-800/50 backdrop-blur-sm border border-background-700 rounded-3xl p-8 hover:border-accent-500/50 transition-all duration-300"
             >
-              <div className="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <Check className="text-green-600" size={24} />
+              <div className="bg-accent-500/20 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Check className="text-accent-400" size={28} />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
+              <h3 className="text-xl font-display font-bold mb-3">
                 {reason.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-background-400 leading-relaxed">
                 {reason.description}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <a
-            href="#gallery"
-            className="inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-700 transition-all"
-          >
-            View Our Gallery
-          </a>
         </div>
       </div>
     </section>

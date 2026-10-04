@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
 
 const Testimonials = () => {
@@ -17,30 +18,43 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-32 bg-background-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <span className="text-accent-600 font-semibold text-sm uppercase tracking-widest mb-4 block">
+            Testimonials
+          </span>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-background-900 mb-6">
             What Our Clients Say
           </h2>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all duration-300 border border-background-200 hover:border-accent-300"
             >
-              <div className="bg-primary-100 w-12 h-12 rounded-full flex items-center justify-center mb-6">
-                <Quote className="text-primary-600" size={24} />
+              <div className="bg-accent-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                <Quote className="text-accent-600" size={32} />
               </div>
-              <p className="text-gray-600 leading-relaxed mb-6 italic">
+              <p className="text-background-600 leading-relaxed mb-8 text-lg italic">
                 "{testimonial.text}"
               </p>
-              <p className="text-gray-900 font-bold">
+              <p className="text-background-900 font-display font-bold text-xl">
                 — {testimonial.name}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
