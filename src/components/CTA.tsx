@@ -1,13 +1,18 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, MessageCircle } from 'lucide-react';
+import { ArrowRight, MessageCircle, Phone, Mail } from 'lucide-react';
 
 const CTA = () => {
   return (
-    <section className="py-32 bg-background-900 text-white relative overflow-hidden">
-      {/* Decorative gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-accent-600/20 to-background-900" />
-      <div className="absolute top-0 right-0 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent-400/10 rounded-full blur-3xl" />
+    <section className="relative py-32 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80"
+          alt="Maria Housing Project"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-background-900/80" />
+      </div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
@@ -16,25 +21,42 @@ const CTA = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <span className="text-accent-400 font-semibold text-sm uppercase tracking-widest mb-4 block">
-            Get Started
-          </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-6">
-            Ready to Build Your Dream Home?
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-white mb-6">
+            READY TO BUILD
+            <br />
+            <span className="text-accent-400">YOUR NEXT SPACE?</span>
           </h2>
-          <p className="text-lg text-background-300 max-w-2xl mx-auto mb-12">
-            Let's turn your ideas into a space you will be proud to call home. Whether you're planning a new house, farmhouse, renovation, or looking for the right property, Maria Housing is ready to help.
+          
+          <div className="space-y-4 text-xl text-background-200 mb-12 max-w-2xl mx-auto">
+            <p>Have a plot?</p>
+            <p>Planning a home?</p>
+            <p>Renovating?</p>
+            <p>Building a commercial space?</p>
+          </div>
+          
+          <p className="text-2xl text-white mb-12">
+            Tell us what you're imagining.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <motion.a
+            href="#contact"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center justify-center gap-2 bg-accent-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-accent-600 transition-all shadow-xl shadow-accent-500/30"
+          >
+            Start Your Project
+            <ArrowRight size={20} />
+          </motion.a>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <motion.a
-              href="#contact"
+              href="tel:+917010680759"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center gap-2 bg-white text-background-900 px-8 py-4 rounded-full font-semibold hover:bg-background-100 transition-all shadow-xl"
+              className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full font-semibold hover:bg-white/20 transition-all border-2 border-white/30"
             >
-              Start Your Project
-              <ArrowRight size={20} />
+              <Phone size={20} />
+              <span>Phone</span>
             </motion.a>
             <motion.a
               href="https://wa.me/917010680759?text=Hello%20Maria%20Housing%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
@@ -42,10 +64,19 @@ const CTA = () => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center gap-2 bg-accent-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-accent-600 transition-all shadow-lg shadow-accent-500/30"
+              className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full font-semibold hover:bg-white/20 transition-all border-2 border-white/30"
             >
-              Chat on WhatsApp
               <MessageCircle size={20} />
+              <span>WhatsApp</span>
+            </motion.a>
+            <motion.a
+              href="mailto:Hello@mariasupercity.com"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full font-semibold hover:bg-white/20 transition-all border-2 border-white/30"
+            >
+              <Mail size={20} />
+              <span>Email</span>
             </motion.a>
           </div>
         </motion.div>

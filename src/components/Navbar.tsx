@@ -1,88 +1,99 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, MessageCircle } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'About', href: '#about' },
-    { name: 'Gallery', href: '#gallery' },
+    { name: 'Home', href: '/#home' },
+    { name: 'Services', href: '/#services' },
+    { name: 'About', href: '/#about' },
+    { name: 'Gallery', href: '/gallery' },
+    { name: 'Contact', href: '/#contact' },
   ];
 
   return (
     <>
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, type: 'spring' }}
-        className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
-          scrolled 
-            ? 'glass shadow-2xl px-6 py-3 rounded-full' 
-            : 'bg-transparent px-6 py-3'
-        }`}
-      >
-        <div className="flex items-center justify-between gap-8">
-          {/* Logo */}
-          <motion.a
-            href="#home"
-            whileHover={{ scale: 1.05 }}
-            className="text-xl font-display font-bold text-background-900 tracking-tight"
+      <header className="fixed inset-x-0 top-4 z-50 px-4 sm:px-6">
+        <div className="mx-auto max-w-[1100px]">
+          <motion.nav
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, type: 'spring' }}
+            className="flex items-center justify-between rounded-[28px] border border-white/60 bg-[#f3efe9]/90 px-4 py-3 shadow-[0_12px_35px_rgba(21,21,21,0.08)] backdrop-blur-sm md:px-6"
           >
-            MARIA<span className="text-accent-600">.</span>
-          </motion.a>
+            <motion.a
+              href="/#home"
+              whileHover={{ scale: 1.02 }}
+              className="flex items-center gap-3"
+            >
+              <div className="flex flex-col items-start leading-none">
+                <span
+                  className="select-none bg-gradient-to-r from-[#1f9fe8] via-[#1a87d9] to-[#0d4d9a] bg-clip-text text-transparent"
+                  style={{
+                    fontFamily: 'Arial Black, Impact, sans-serif',
+                    fontSize: 'clamp(2rem, 3vw, 4.9rem)',
+                    lineHeight: '0.82',
+                    letterSpacing: '-0.08em',
+                    fontWeight: 900,
+                  }}
+                >
+                  MARIA
+                </span>
+                <span
+                  className="select-none mt-1 uppercase text-background-900"
+                  style={{
+                    fontFamily: 'Arial, Helvetica, sans-serif',
+                    fontSize: 'clamp(0.5rem, 0.72vw, 1rem)',
+                    letterSpacing: '0.46em',
+                    fontWeight: 700,
+                    lineHeight: '1',
+                  }}
+                >
+                  HOUSING
+                </span>
+              </div>
+            </motion.a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <motion.a
-                key={link.name}
-                href={link.href}
-                whileHover={{ y: -2 }}
-                className="text-sm font-medium text-background-600 hover:text-background-900 transition-colors relative group"
-              >
-                {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-500 transition-all group-hover:w-full" />
-              </motion.a>
-            ))}
-          </div>
+            <div className="hidden items-center gap-8 md:flex">
+              {navLinks.map((link) => (
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  whileHover={{ y: -1 }}
+                  className="text-[15px] font-medium text-background-700 transition-colors hover:text-background-900"
+                >
+                  {link.name}
+                </motion.a>
+              ))}
+            </div>
 
-          {/* CTA Button */}
-          <motion.a
-            href="https://wa.me/917010680759?text=Hello%20Maria%20Housing%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="hidden md:flex items-center gap-2 bg-accent-500 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-accent-600 transition-colors shadow-lg shadow-accent-500/30"
-          >
-            <Phone size={16} />
-            <span>WhatsApp</span>
-          </motion.a>
+            <motion.a
+              href="https://wa.me/917010680759?text=Hello%20Maria%20Housing%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="hidden items-center gap-2 rounded-full bg-[#b5965a] px-5 py-3 text-sm font-semibold text-white shadow-[0_8px_18px_rgba(181,150,90,0.35)] transition-colors hover:bg-[#a9884e] md:inline-flex"
+            >
+              <MessageCircle size={16} />
+              <span>WhatsApp</span>
+            </motion.a>
 
-          {/* Mobile menu button */}
-          <motion.button
-            onClick={() => setIsOpen(!isOpen)}
-            whileTap={{ scale: 0.9 }}
-            className="md:hidden text-background-900 hover:text-accent-600 transition-colors"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </motion.button>
+            <motion.button
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              whileTap={{ scale: 0.96 }}
+              className="inline-flex items-center justify-center rounded-full border border-background-200 bg-white/70 p-2 text-background-900 transition-colors hover:border-background-300 md:hidden"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={22} /> : <Menu size={22} />}
+            </motion.button>
+          </motion.nav>
         </div>
-      </motion.nav>
+      </header>
 
-      {/* Mobile Navigation */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -90,19 +101,18 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 md:hidden"
+            className="fixed inset-0 z-40 bg-[#f3efe9]/95 px-4 pt-28 backdrop-blur-xl md:hidden"
           >
-            <div className="absolute inset-0 bg-background-50/95 backdrop-blur-xl" />
-            <div className="relative h-full flex flex-col items-center justify-center gap-8 px-4">
+            <div className="mx-auto flex max-w-md flex-col items-center gap-8">
               {navLinks.map((link, index) => (
                 <motion.a
                   key={link.name}
                   href={link.href}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.08 }}
                   onClick={() => setIsOpen(false)}
-                  className="text-2xl font-display font-semibold text-background-900 hover:text-accent-600 transition-colors"
+                  className="text-2xl font-display font-semibold text-background-900"
                 >
                   {link.name}
                 </motion.a>
@@ -113,12 +123,12 @@ const Navbar = () => {
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
+                transition={{ delay: 0.25 }}
                 onClick={() => setIsOpen(false)}
-                className="flex items-center gap-2 bg-accent-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-accent-600 transition-colors"
+                className="inline-flex items-center gap-2 rounded-full bg-[#b5965a] px-6 py-3 text-base font-semibold text-white shadow-[0_8px_18px_rgba(181,150,90,0.35)]"
               >
-                <Phone size={20} />
-                <span>WhatsApp Us</span>
+                <MessageCircle size={18} />
+                <span>WhatsApp</span>
               </motion.a>
             </div>
           </motion.div>

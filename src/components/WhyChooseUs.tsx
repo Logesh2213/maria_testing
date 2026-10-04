@@ -1,40 +1,32 @@
 import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
 
 const WhyChooseUs = () => {
   const reasons = [
     {
-      title: 'Exceptional Quality',
-      description: 'We focus on quality materials, skilled workmanship, and attention to detail in every project we undertake.',
+      number: '01',
+      title: 'CLARITY',
+      description: 'You should know what you are building, why you are building it and what comes next.',
     },
     {
-      title: 'Client-Centric Approach',
-      description: 'Your requirements come first. We listen to your ideas, preferences, and budget to create solutions tailored specifically to you.',
+      number: '02',
+      title: 'CRAFT',
+      description: 'The quality of a space is found in the details, from the planning stage to the final finish.',
     },
     {
-      title: 'Expertise & Experience',
-      description: 'Our experienced team brings practical knowledge and construction expertise to every project.',
+      number: '03',
+      title: 'RESPONSIBILITY',
+      description: 'A property is a major investment. We treat it that way, with care and accountability.',
     },
     {
-      title: 'Integrity & Transparency',
-      description: 'We believe in honest communication, transparent processes, and building long-term relationships with our clients.',
-    },
-    {
-      title: 'Attention to Detail',
-      description: 'Every stage of construction is carefully planned and executed to ensure quality and consistency.',
-    },
-    {
-      title: 'On-Time Project Support',
-      description: 'We coordinate every stage of the project to keep the process organized and efficient.',
+      number: '04',
+      title: 'RELATIONSHIP',
+      description: 'The project may end, but the relationship should carry on with trust and confidence.',
     },
   ];
 
   return (
-    <section className="py-32 bg-background-900 text-white relative overflow-hidden">
-      {/* Decorative gradient */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent-600/10 to-transparent" />
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-32 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -42,18 +34,15 @@ const WhyChooseUs = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <span className="text-accent-400 font-semibold text-sm uppercase tracking-widest mb-4 block">
-                Why Us
-          </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-6">
-            Why Choose Maria Housing?
+          <p className="text-sm uppercase tracking-[0.25em] text-accent-600 mb-4">Maria Philosophy</p>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-background-900 mb-6">
+            WE BELIEVE GOOD BUILDING
+            <br />
+            <span className="text-accent-500">IS ABOUT MORE THAN CONSTRUCTION.</span>
           </h2>
-          <p className="text-lg text-background-300 max-w-2xl mx-auto">
-            Experience the difference that Maria Housing can make in your next construction or real estate project.
-          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {reasons.map((reason, index) => (
             <motion.div
               key={index}
@@ -61,15 +50,13 @@ const WhyChooseUs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group bg-background-800/50 backdrop-blur-sm border border-background-700 rounded-3xl p-8 hover:border-accent-500/50 transition-all duration-300"
+              className="bg-background-50 rounded-3xl p-8 border border-background-200"
             >
-              <div className="bg-accent-500/20 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Check className="text-accent-400" size={28} />
-              </div>
-              <h3 className="text-xl font-display font-bold mb-3">
+              <p className="text-4xl font-display font-bold text-accent-500 mb-4">{reason.number}</p>
+              <h3 className="text-2xl font-display font-bold text-background-900 mb-3">
                 {reason.title}
               </h3>
-              <p className="text-background-400 leading-relaxed">
+              <p className="text-background-600 leading-relaxed">
                 {reason.description}
               </p>
             </motion.div>

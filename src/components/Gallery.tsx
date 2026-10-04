@@ -1,88 +1,75 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+import home1 from '../../Home/IMG-20240206-WA0018.webp';
+import home2 from '../../Home/IMG-20240223-WA0018.webp';
+import home3 from '../../Home/IMG-20240223-WA0027.webp';
+import home4 from '../../Home/IMG-20240223-WA0030.webp';
+import home5 from '../../Home/IMG-20240223-WA0039.webp';
+
+interface Project {
+  id: number;
+  category: string;
+  image: string;
+  title: string;
+  location: string;
+  type: string;
+}
 
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState('All');
 
-  const categories = ['All', 'Residential', 'Farmhouses', 'Villas', 'Interiors', 'Construction'];
+  const categories = ['All', 'Home', 'Renovation', 'Farm House', '2D & 3D Design'];
 
-  const projects = [
-    {
-      id: 1,
-      category: 'Residential',
-      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80',
-      title: 'Modern Family Home',
-    },
-    {
-      id: 2,
-      category: 'Farmhouses',
-      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80',
-      title: 'Luxury Farmhouse',
-    },
-    {
-      id: 3,
-      category: 'Villas',
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
-      title: 'Premium Villa',
-    },
-    {
-      id: 4,
-      category: 'Interiors',
-      image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80',
-      title: 'Modern Interior',
-    },
-    {
-      id: 5,
-      category: 'Construction',
-      image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80',
-      title: 'Construction Site',
-    },
-    {
-      id: 6,
-      category: 'Residential',
-      image: 'https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80',
-      title: 'Contemporary Home',
-    },
+  const projects: Project[] = [
+    { id: 1, category: 'Home', image: home1, title: 'Front Elevation', location: 'Vellore', type: 'Residential' },
+    { id: 2, category: 'Home', image: home2, title: 'Interior Staircase', location: 'Vellore', type: 'Residential' },
+    { id: 3, category: 'Home', image: home3, title: 'Architecture View', location: 'Vellore', type: 'Residential' },
+    { id: 4, category: 'Home', image: home4, title: 'Property Exterior', location: 'Vellore', type: 'Residential' },
+    { id: 5, category: 'Home', image: home5, title: 'Modern Home', location: 'Vellore', type: 'Residential' },
+    { id: 6, category: 'Renovation', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80', title: 'Space Reimagined', location: 'Vellore', type: 'Renovation' },
+    { id: 7, category: 'Farm House', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80', title: 'Farm House Living', location: 'Vellore', type: 'Farm House' },
+    { id: 8, category: '2D & 3D Design', image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1200&q=80', title: '3D Planning Concept', location: 'Vellore', type: 'Design' },
+    { id: 9, category: 'Renovation', image: 'https://images.unsplash.com/photo-1494526585095-c41746248156?w=1200&q=80', title: 'Transforming Space', location: 'Vellore', type: 'Renovation' },
+    { id: 10, category: 'Farm House', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200&q=80', title: 'Modern Farm Residence', location: 'Vellore', type: 'Farm House' },
   ];
 
-  const filteredProjects = activeCategory === 'All' 
-    ? projects 
-    : projects.filter(project => project.category === activeCategory);
+  const filteredProjects = activeCategory === 'All'
+    ? projects
+    : projects.filter((project) => project.category === activeCategory);
 
   return (
-    <section id="gallery" className="py-32 bg-background-100 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="gallery" className="min-h-screen bg-[#f3efe9] px-4 pb-20 pt-28 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1200px]">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="mb-10 text-center"
         >
-          <span className="text-accent-600 font-semibold text-sm uppercase tracking-widest mb-4 block">
-            Portfolio
-          </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-background-900 mb-6">
-            Our Work
+          <h2 className="text-4xl font-display font-bold text-background-900 sm:text-5xl lg:text-[4.2rem] lg:leading-[1]">
+            Let's checkout our previous works
           </h2>
-          <p className="text-lg text-background-600 max-w-2xl mx-auto">
-            Every project tells a story. Take a look at our work and discover the quality, craftsmanship, and attention to detail that goes into every Maria Housing project.
-          </p>
+          {/* <p className="mt-3 text-base italic text-background-600"> */}
+            {/* Vitae porttitor sapien nam ac. Tristique duis ultricies in elementum. */}
+          {/* </p> */}
         </motion.div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="mb-10 flex flex-wrap justify-center gap-4 sm:gap-5">
           {categories.map((category) => (
             <motion.button
               key={category}
+              type="button"
               onClick={() => setActiveCategory(category)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`px-6 py-3 rounded-full font-medium transition-all ${
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className={`rounded-full px-4 py-2 text-sm font-medium transition-all sm:px-5 ${
                 activeCategory === category
                   ? 'bg-background-900 text-white shadow-lg'
-                  : 'bg-white text-background-600 hover:bg-background-200'
+                  : 'bg-transparent text-background-700 hover:bg-white/70'
               }`}
             >
               {category}
@@ -90,61 +77,46 @@ const Gallery = () => {
           ))}
         </div>
 
-        {/* Gallery Grid */}
-        <AnimatePresence mode='wait'>
+        <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            transition={{ duration: 0.25 }}
+            className="grid gap-6 md:grid-cols-2 xl:grid-cols-4"
           >
             {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 }}
-                className="group relative overflow-hidden rounded-3xl shadow-lg cursor-pointer"
-              >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-96 object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background-900/90 via-background-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-8">
-                    <p className="text-accent-400 text-sm font-medium mb-2">
-                      {project.category}
-                    </p>
-                    <h3 className="text-white text-2xl font-display font-bold">
-                      {project.title}
-                    </h3>
+              <Link key={project.id} to={`/project/${project.id}`} className="group block">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.06 }}
+                  className="overflow-hidden rounded-[26px] border border-background-200 bg-white shadow-[0_12px_24px_rgba(21,21,21,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_30px_rgba(21,21,21,0.12)]"
+                >
+                  <div className="relative h-[310px] overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background-900/20 via-transparent to-transparent" />
                   </div>
-                </div>
-              </motion.div>
+
+                  <div className="flex items-center justify-between p-4">
+                    <div>
+                      <p className="text-[11px] uppercase tracking-[0.18em] text-background-500">{project.type}</p>
+                      <h3 className="mt-1 text-lg font-display font-bold text-background-900">{project.title}</h3>
+                    </div>
+                    <span className="inline-flex items-center gap-1 text-accent-600">
+                      <ArrowRight size={16} />
+                    </span>
+                  </div>
+                </motion.div>
+              </Link>
             ))}
           </motion.div>
         </AnimatePresence>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="text-center mt-16"
-        >
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center justify-center gap-2 bg-background-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-background-800 transition-all shadow-xl"
-          >
-            View Full Gallery
-            <ArrowRight size={20} />
-          </motion.a>
-        </motion.div>
       </div>
     </section>
   );

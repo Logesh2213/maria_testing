@@ -8,6 +8,8 @@ const Contact = () => {
     phone: '',
     email: '',
     projectType: '',
+    location: '',
+    budget: '',
     message: '',
   });
 
@@ -20,6 +22,8 @@ const Contact = () => {
       phone: '',
       email: '',
       projectType: '',
+      location: '',
+      budget: '',
       message: '',
     });
   };
@@ -42,18 +46,17 @@ const Contact = () => {
           className="text-center mb-20"
         >
           <span className="text-accent-600 font-semibold text-sm uppercase tracking-widest mb-4 block">
-            Contact Us
+            Start the conversation
           </span>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-background-900 mb-6">
-            Let's Build Something Beautiful Together
+            LET'S TALK ABOUT WHAT YOU'RE BUILDING.
           </h2>
           <p className="text-lg text-background-600 max-w-2xl mx-auto">
-            Have a project in mind? We'd love to hear from you.
+            Have a plot? Planning a home? Renovating an existing property? Looking for a commercial space? Tell us what you have in mind.
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16">
-          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -109,7 +112,6 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* Contact Form */}
           <motion.form
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -158,26 +160,52 @@ const Contact = () => {
                 />
               </div>
 
-              <div>
-                <label className="block text-background-900 font-semibold mb-2">Project Type</label>
-                <select
-                  name="projectType"
-                  value={formData.projectType}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-5 py-4 rounded-2xl border border-background-300 focus:border-accent-500 focus:ring-2 focus:ring-accent-200 outline-none transition-all bg-background-50"
-                >
-                  <option value="">Select project type</option>
-                  <option value="House Construction">House Construction</option>
-                  <option value="Farmhouse">Farmhouse</option>
-                  <option value="Property Purchase">Property Purchase</option>
-                  <option value="Renovation">Renovation</option>
-                  <option value="Other">Other</option>
-                </select>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-background-900 font-semibold mb-2">Project Type</label>
+                  <select
+                    name="projectType"
+                    value={formData.projectType}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-5 py-4 rounded-2xl border border-background-300 focus:border-accent-500 focus:ring-2 focus:ring-accent-200 outline-none transition-all bg-background-50"
+                  >
+                    <option value="">Select type</option>
+                    <option value="Residential">Residential</option>
+                    <option value="Commercial">Commercial</option>
+                    <option value="Renovation">Renovation</option>
+                    <option value="Real Estate">Real Estate</option>
+                    <option value="Design">Design</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-background-900 font-semibold mb-2">Location</label>
+                  <input
+                    type="text"
+                    name="location"
+                    value={formData.location}
+                    onChange={handleChange}
+                    placeholder="Enter location"
+                    className="w-full px-5 py-4 rounded-2xl border border-background-300 focus:border-accent-500 focus:ring-2 focus:ring-accent-200 outline-none transition-all bg-background-50"
+                  />
+                </div>
               </div>
 
               <div>
-                <label className="block text-background-900 font-semibold mb-2">Message</label>
+                <label className="block text-background-900 font-semibold mb-2">Approximate Budget</label>
+                <input
+                  type="text"
+                  name="budget"
+                  value={formData.budget}
+                  onChange={handleChange}
+                  placeholder="Example: ₹50L - ₹1Cr"
+                  className="w-full px-5 py-4 rounded-2xl border border-background-300 focus:border-accent-500 focus:ring-2 focus:ring-accent-200 outline-none transition-all bg-background-50"
+                />
+              </div>
+
+              <div>
+                <label className="block text-background-900 font-semibold mb-2">Tell us about your project</label>
                 <textarea
                   name="message"
                   value={formData.message}
@@ -195,7 +223,7 @@ const Contact = () => {
                 whileTap={{ scale: 0.98 }}
                 className="w-full bg-background-900 text-white py-4 rounded-2xl font-semibold hover:bg-background-800 transition-all shadow-xl flex items-center justify-center gap-2"
               >
-                Send Enquiry
+                START THE CONVERSATION
                 <ArrowRight size={20} />
               </motion.button>
             </div>
