@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import aboutImage from '../../Home/IMG-20240223-WA0039.webp';
+import chairmanImage from '../assets/chairman.png';
+import directorImage from '../assets/director.png';
 
 const About = () => {
   const pillars = [
@@ -79,6 +81,65 @@ const About = () => {
               {pillar}
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-24">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-12 text-center"
+          >
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-accent-600">Leadership</p>
+            <h2 className="text-4xl font-display font-bold text-background-900 sm:text-5xl">Meet Our Team</h2>
+          </motion.div>
+
+          <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
+            <motion.article
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="overflow-hidden rounded-lg border border-background-200 bg-white shadow-sm"
+            >
+              <img
+                src={chairmanImage}
+                alt="J Inego Lancy, Chairman"
+                className="h-[420px] w-full object-cover object-top"
+                loading="lazy"
+              />
+              <div className="p-6">
+                <h3 className="text-2xl font-display font-bold text-background-900">J Inego Lancy</h3>
+                <p className="mt-1 font-semibold text-accent-600">Chairman</p>
+                <p className="mt-3 leading-relaxed text-background-600">
+                  Providing strategic leadership and guiding the company's vision for growth and excellence.
+                </p>
+              </div>
+            </motion.article>
+
+            <motion.article
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="overflow-hidden rounded-lg border border-background-200 bg-white shadow-sm"
+            >
+              <img
+                src={directorImage}
+                alt="L Kiran Harishan, Managing Director"
+                className="h-[420px] w-full object-cover object-top"
+                loading="lazy"
+              />
+              <div className="p-6">
+                <h3 className="text-2xl font-display font-bold text-background-900">L Kiran Harishan</h3>
+                <p className="mt-1 font-semibold text-accent-600">Managing Director</p>
+                <p className="mt-3 leading-relaxed text-background-600">
+                  Overseeing operations and ensuring delivery of quality construction projects.
+                </p>
+              </div>
+            </motion.article>
+          </div>
         </div>
       </div>
     </section>
