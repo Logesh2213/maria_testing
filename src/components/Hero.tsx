@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+const MotionLink = motion.create(Link);
 
 const Hero = () => {
   return (
@@ -54,23 +57,23 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex flex-col gap-4 sm:flex-row"
           >
-            <motion.a
-              href="#contact"
+            <MotionLink
+              to="/contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-semibold text-background-900 transition-all hover:bg-background-100"
             >
               START YOUR PROJECT
               <ArrowRight size={20} />
-            </motion.a>
-            <motion.a
-              href="#services"
+            </MotionLink>
+            <MotionLink
+              to="/gallery"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10"
             >
               OUR PROJECTS
-            </motion.a>
+            </MotionLink>
           </motion.div>
         </div>
       </div>

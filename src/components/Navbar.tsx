@@ -1,16 +1,19 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, MessageCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+const MotionLink = motion.create(Link);
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Home', href: '/#home' },
-    { name: 'Services', href: '/#services' },
-    { name: 'About', href: '/#about' },
+    { name: 'Home', href: '/' },
+    { name: 'Services', href: '/services' },
+    { name: 'About', href: '/about' },
     { name: 'Gallery', href: '/gallery' },
-    { name: 'Contact', href: '/#contact' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -23,8 +26,8 @@ const Navbar = () => {
             transition={{ duration: 0.6, type: 'spring' }}
             className="flex items-center justify-between rounded-[28px] border border-white/60 bg-[#f3efe9]/90 px-4 py-3 shadow-[0_12px_35px_rgba(21,21,21,0.08)] backdrop-blur-sm md:px-6"
           >
-            <motion.a
-              href="/#home"
+            <MotionLink
+              to="/"
               whileHover={{ scale: 1.02 }}
               className="flex items-center gap-3"
             >
@@ -54,18 +57,18 @@ const Navbar = () => {
                   HOUSING
                 </span>
               </div>
-            </motion.a>
+            </MotionLink>
 
             <div className="hidden items-center gap-8 md:flex">
               {navLinks.map((link) => (
-                <motion.a
+                <MotionLink
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
                   whileHover={{ y: -1 }}
                   className="text-[15px] font-medium text-background-700 transition-colors hover:text-background-900"
                 >
                   {link.name}
-                </motion.a>
+                </MotionLink>
               ))}
             </div>
 
@@ -105,9 +108,9 @@ const Navbar = () => {
           >
             <div className="mx-auto flex max-w-md flex-col items-center gap-8">
               {navLinks.map((link, index) => (
-                <motion.a
+                <MotionLink
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.08 }}
@@ -115,7 +118,7 @@ const Navbar = () => {
                   className="text-2xl font-display font-semibold text-background-900"
                 >
                   {link.name}
-                </motion.a>
+                </MotionLink>
               ))}
               <motion.a
                 href="https://wa.me/917010680759?text=Hello%20Maria%20Housing%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."

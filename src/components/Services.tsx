@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Home, PenTool, Wrench, Building, MessageCircle, FileCheck } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+const MotionLink = motion.create(Link);
 
 const Services = () => {
   const services = [
@@ -85,15 +88,15 @@ const Services = () => {
                 <p className="text-background-600 leading-relaxed mb-6">
                   {service.description}
                 </p>
-                <motion.a
-                  href="#contact"
+                <MotionLink
+                  to="/contact"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="inline-flex items-center gap-2 text-accent-600 font-semibold hover:text-accent-700 transition-colors"
                 >
                   Explore
                   <ArrowRight size={16} />
-                </motion.a>
+                </MotionLink>
 
                 <div className="absolute inset-0 border-2 border-accent-500/0 rounded-3xl group-hover:border-accent-500/30 transition-all duration-500 pointer-events-none" />
               </motion.div>
